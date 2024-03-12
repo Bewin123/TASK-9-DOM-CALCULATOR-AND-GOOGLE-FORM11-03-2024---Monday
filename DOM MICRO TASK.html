@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Page</title>
+    <style>
+        .highlight {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Task 1: Color a span/div element on mouseover -->
+    <div id="colorElement" onmouseover="changeColor()" onmouseout="resetColor()">Hover over me!</div>
+
+    <!-- Task 2: Use prompt to read a value from the user and display it in the span element -->
+    <span id="userValueSpan"></span>
+    <script>
+        function changeColor() {
+            document.getElementById('colorElement').classList.add('highlight');
+            var userValue = prompt('Enter a value:');
+            document.getElementById('userValueSpan').innerText = userValue;
+        }
+
+        function resetColor() {
+            document.getElementById('colorElement').classList.remove('highlight');
+        }
+    </script>
+
+    <!-- Task 3: Display mouse X and Y coordinates when clicking on h1 -->
+    <h1 onclick="showMouseCoordinates(event)">Click me!</h1>
+    <p id="mouseCoordinates"></p>
+    <script>
+        function showMouseCoordinates(event) {
+            document.getElementById('mouseCoordinates').innerText = `Mouse X: ${event.clientX}, Mouse Y: ${event.clientY}`;
+        }
+    </script>
+
+    <!-- Task 4: Character counts in textarea -->
+    <textarea id="charCountTextarea" oninput="countCharacters()"></textarea>
+    <p id="charCount"></p>
+    <script>
+        function countCharacters() {
+            var text = document.getElementById('charCountTextarea').value;
+            document.getElementById('charCount').innerText = `Character Count: ${text.length}`;
+        }
+    </script>
+
+    <!-- Task 5: Full screen and exit full screen buttons -->
+    <button onclick="goFullScreen()">Full Screen</button>
+    <button onclick="exitFullScreen()">Exit Full Screen</button>
+    <script>
+        function goFullScreen() {
+            document.documentElement.requestFullscreen();
+        }
+
+        function exitFullScreen() {
+            document.exitFullscreen();
+        }
+    </script>
+
+    <!-- Task 6: Alert on key press -->
+    <script>
+        document.addEventListener('keydown', function (event) {
+            if (event.key === ' ') {
+                alert('Thank You..!!');
+                window.close();
+            } else {
+                alert('Invalid Key Pressed');
+            }
+        });
+    </script>
+
+    <!-- Task 7: Allow user to edit content on hover -->
+    <p contenteditable="true">Hover over me to edit!</p>
+
+</body>
+
+</html>
